@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>IoniZZA - Mon Panier</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <h2>Votre panier IoniZZA :</h2>
+  <ion-list *ngFor="let pizza of monPanier">
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="{{pizza.picture}}">
+      </ion-avatar>
+      <h2>{{pizza.name}}</h2>
+      <p>{{pizza.price}}€</p>
+      <button ion-button color="danger" clear icon-only (click)="removePizza(pizza.id)">
+        <ion-icon name='trash' is-active="false"></ion-icon>
+      </button>
+      <hr/>
+    </ion-item>
+  </ion-list>
+  <p>Total : {{totalPanier}}€</p>
+</ion-content>

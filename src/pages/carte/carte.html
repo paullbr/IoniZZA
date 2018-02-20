@@ -1,0 +1,34 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>IoniZZA - Carte</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <h2>La carte IoniZZA :</h2>
+  <ion-card *ngFor="let pizza of mypizza">
+    <img src="{{pizza.picture}}"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{pizza.name}}
+      </ion-card-title>
+      <p>
+        {{pizza.desc}}
+      </p>
+      <span style="float: right; color: blue">{{pizza.price}}€</span>
+      <button ion-button (click)="openDetail(pizza.id)" icon-end>
+        Détail
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button ion-button (click)="addToCart(pizza.id)" icon-end>
+        Commander
+        <ion-icon name="pizza"></ion-icon>
+      </button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

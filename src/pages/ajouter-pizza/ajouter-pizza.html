@@ -1,0 +1,46 @@
+<!--
+  Generated template for the AjouterPizzaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title *ngIf="!pizza.id">Ajouter une Pizza</ion-title>
+    <ion-title *ngIf="pizza.id > 0">Modifier une Pizza</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <form #form="ngForm" (ngSubmit)="logForm(form)" novalidate>
+        <ion-item>
+            <ion-label>Nom</ion-label>
+            <ion-input type="text" required [(ngModel)]="pizza.name" ngControl="name"  [ngModelOptions]="{standalone: true}"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Image</ion-label>
+            <ion-input type="text" required [(ngModel)]="pizza.picture" ngControl="picture"  [ngModelOptions]="{standalone: true}"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Description</ion-label>
+            <ion-input type="text" required [(ngModel)]="pizza.desc" ngControl="desc"  [ngModelOptions]="{standalone: true}"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Ingrédients</ion-label>
+            <ion-input type="text" required [(ngModel)]="pizza.ingredients" ngControl="ingredients"  [ngModelOptions]="{standalone: true}"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Prix</ion-label>
+            <ion-input type="number" required [(ngModel)]="pizza.price" ngControl="price"  [ngModelOptions]="{standalone: true}"></ion-input>
+        </ion-item>
+        <br/><br/><br/>
+
+        <button *ngIf="pizza.id > 0" ion-button type="submit" (click)="modifierPizza(pizza);" block>Modifier</button>
+        <button *ngIf="!pizza.id" ion-button type="submit" (click)="ajouterPizza(pizza);" block>Ajouter</button>
+    </form>
+
+</ion-content>
